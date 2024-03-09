@@ -1,52 +1,63 @@
-{% extends "base.html" %} {% block title %}crowdfund{% endblock %} {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects</title>
-    <style>
-        .projects-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .card {
-            width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 10px;
-        }
-        .card img {
-            width: 100%;
-            height: auto;
-            max-width: 100%;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-        .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        .card p {
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-    </style>
-</head>
-<body style="color: red">
-    <h1>My Projects</h1>
-    <div class="projects-container">
-        {% for project in projects %}
-        <div class="card">
-            <img src="{{ project[3] }}" alt="{{ project[1] }}">
-            <h2>{{ project[1] }}</h2>
-            <p>{{ project[2] }}</p>
-            <p>Total Funding Goal: ${{ project[4] }}</p>
-            <a href="/editfundme/{{ project[1] }}">Edit</a>
-            <a href="/deletefundme/{{ project[1] }}">Delete</a>
-        </div>
-        {% endfor %}
+{% extends "base.html" %} {% block title %}My Projects{% endblock %} {% block
+content %}
+<!-- 
+<h1>My Projects</h1>
+<div class="projects-container">
+  {% for project in projects %}
+  <div class="card">
+    <img src="{{ project[3] }}" alt="{{ project[1] }}" />
+    <h2>{{ project[1] }}</h2>
+    <p>{{ project[2] }}</p>
+    <p>Total Funding Goal: ${{ project[4] }}</p>
+    <a href="/editfundme/{{ project[1] }}">Edit</a>
+    <a href="/deletefundme/{{ project[1] }}">Delete</a>
+  </div>
+  {% endfor %}
+</div> -->
+<div class="mx-40">
+  <h2 class="font-semibold leading-7 text-light text-4xl my-5 font-poppins">
+    My Projects
+  </h2>
+  <p class="mt-1 text-sm leading-6 text-light">
+    Published projects in AthenAI Crowdfund Me
+  </p>
+</div>
+<div class="mx-40">
+  <h2 class="font-semibold leading-7 text-light text-4xl my-5">
+    Crowdfund Projects
+  </h2>
+  <p class="mt-1 text-sm leading-6 text-light mb-10">
+    List of published projects
+  </p>
+  <div class="grid grid-cols-3 grid-flow-row gap-3 text-light">
+    {% for project in projects %}
+
+    <div class="max-w-sm bg-gray-800 border border-gray-200 rounded-lg shadow">
+      <a href="#">
+        <img class="rounded-t-lg h-40 w-full" src="{{ project[3] }}" alt="" />
+      </a>
+      <div class="p-5">
+        <a href="#">
+          <h5
+            class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white font-poppins"
+          >
+            {{ project[1] }}
+          </h5>
+        </a>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          {{ project[2] }}
+        </p>
+        <h7
+          class="mb-2 text-2md font-medium tracking-tight text-light dark:text-white font-poppins"
+        >
+          Total Funding Goal: ${{ project[4] }} </h7
+        ><br /><br />
+          <a href="/editfundme/{{ project[1] }}">Edit</a>
+          <a href="/deletefundme/{{ project[1] }}">Delete</a>
+        </a>
+      </div>
     </div>
-</html>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
