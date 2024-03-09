@@ -12,15 +12,50 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="bg-dark m-0">
     <!-- DISPLAYING FLASH MESSAGES -->
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for i in messages %} {{ i }} {% endfor %} {% endif %} {%
     endwith %}
 
     <!--BUILD NAVBAR HERE-->
-    <h1 class="text-4xl font-poppins">AthenAI</h1>
-    <nav></nav>
+    <!-- <h1 class="text-4xl font-poppins">AthenAI</h1>
+    <nav></nav> -->
+
+    <header class="text-gray-400 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-white mb-4 md:mb-0"
+        >
+          <span class="ml-3 text-2xl font-poppins">AthenAI</span>
+        </a>
+        <nav
+          class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a class="mr-5 hover:text-white">Home</a>
+        </nav>
+        <button
+          class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"
+        >
+          Get Started
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    GitHub
+
     <!--END NAVBAR HERE-->
 
     <!--Contend Extends-->

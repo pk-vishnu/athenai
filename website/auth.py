@@ -16,7 +16,7 @@ def login():
         cursor.execute(query, (email, password))
         user_data = cursor.fetchone()
         if user_data:
-            user = User(id=user_data[2],email=user_data[0],username=user_data[2])
+            user = User(id=user_data[0],email=user_data[0],username=user_data[2])
             login_user(user,remember=True)
             flash("Login Success!",category="success")
             return redirect(url_for("views.home"))
