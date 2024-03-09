@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Careers{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers</title>
+    <style>
+        .card {
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        body{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Opportunities posted by me:</h1>
+    <div class="card-container">
+        {% for mycareer in mycareers %}
+        <div class="card">
+            <h2>{{ mycareer[1] }}</h2>
+            <p>{{ mycareer[2] }}</p>
+            <p>Contact: {{ mycareer[4] }}</p>
+            <img src="{{ mycareer[3] }}" alt="{{ mycareer[1] }}">
+            <a href="/deletecareer/{{ mycareer[1] }}">Delete</a>
+        </div>
+        {% endfor %}
+    <h1>Careers</h1>
+    <div class="card-container">
+        {% for career in careers %}
+        <div class="card">
+            <h2>{{ career[1] }}</h2>
+            <p>{{ career[2] }}</p>
+            <p>Contact: {{ career[4] }}</p>
+            <img src="{{ career[3] }}" alt="{{ career[1] }}">
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+{% endblock %}

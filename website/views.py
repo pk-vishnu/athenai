@@ -90,3 +90,54 @@ def deletefundme(id):
     connection.close()
     flash("Project deleted successfully!", "success")
     return redirect(url_for("views.myprojects"))
+
+@views.route("/careers")
+def careers():
+    connection = connect_to_database()
+    cursor = connection.cursor()
+
+    query = "SELECT * FROM careers"
+    cursor.execute(query)
+
+    careers = cursor.fetchall()
+
+    query = "SELECT * FROM careers WHERE username = %s"
+    cursor.execute(query, (current_user.id,))
+    mycareers = cursor.fetchall()
+
+    connection.close()
+
+    return render_template("careers.html", user=current_user, careers=careers, mycareers=mycareers)
+
+
+@views.route("/newcareers", methods=["GET", "POST"])
+def newcareers():
+    connection = connect_to_database()
+    cursor = connection.cursor()
+    if request.method == "POST":
+        title = request.form.get("title")
+        description = request.form.get("description")
+        contact = request.form.get("contact")
+        image_link = request.form.get("image_link")
+        values = (title, description, contact, image_link, current_user.id)
+        query = "INSERT INTO careers (title, description, contact, image, username) VALUES (%s, %s, %s, %s, %s)"
+        cursor.execute(query, values)
+        connection.commit()
+        connection.close()
+        flash("Career Opportunity Posted", category="success")
+
+        return redirect(url_for("views.careers"))
+    return render_template("newcareers.html", user=current_user)
+
+
+@views.route("/deletecareer/<string:id>", methods=["GET", "POST"])
+def deletecareer(id):
+    connection = connect_to_database()
+    cursor = connection.cursor()
+
+    query = "DELETE FROM careers WHERE title = %s"
+    cursor.execute(query, (id,))
+    connection.commit()
+    connection.close()
+    flash("Project deleted successfully!", "success")
+    return redirect(url_for("views.careers"))
