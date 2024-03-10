@@ -1,5 +1,6 @@
 # Athen.ai 
 **Empowering Women Entrepreneurs**
+
 *Description:*
 
 Athen.ai is a user-friendly application designed to empower and equip women entrepreneurs through the power of technology. Our platform leverages AI and blockchain technology to provide **personalized guidance, diverse funding opportunities, and a supportive community**. We aim to bridge the gender gap in entrepreneurship and foster the success of women-led startups.
