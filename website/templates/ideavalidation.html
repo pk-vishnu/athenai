@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Idea Validation{% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Entrepreneur Information Form</title>
+</head>
+<body style = "color:red">
+    <h2>Entrepreneur Information Form</h2>
+    <form action="#" method="post">
+        <label for="product_description">Product Description:</label><br>
+        <textarea id="product_description" name="product_description" rows="4" cols="50"></textarea><br><br>
+        
+        <label for="target_customer_demographic">Target Customer Demographic:</label><br>
+        <textarea id="target_customer_demographic" name="target_customer_demographic" rows="4" cols="50"></textarea><br><br>
+        
+        <label for="initial_investment">Initial Investment:</label><br>
+        <input type="text" id="initial_investment" name="initial_investment"><br><br>
+        
+        <label for="goals_of_the_company">Goals of the Company:</label><br>
+        <textarea id="goals_of_the_company" name="goals_of_the_company" rows="4" cols="50"></textarea><br><br>
+        
+        <label for="likelihood_of_taking_risk">Likelihood of taking Risk:</label><br>
+        <select id="likelihood_of_taking_risk" name="likelihood_of_taking_risk">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select><br><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
+{% endblock %}
