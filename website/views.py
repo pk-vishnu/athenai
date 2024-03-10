@@ -264,7 +264,7 @@ def ideavalidation():
 def ideafeedback():
     connection = connect_to_database()
     cursor = connection.cursor()
-    query = "SELECT * FROM ideavalidation WHERE Username = '{}'".format(current_user.id)
+    query = "SELECT * FROM ideavalidation WHERE Username = '{}' AND id = (SELECT MAX(id) FROM ideavalidation WHERE Username = '{}')".format(current_user.id, current_user.id)
     cursor.execute(query)
     row = cursor.fetchone()
     print(row)

@@ -1,36 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Business Feedback</title>
-</head>
-<body>
-    <h1>Business Feedback</h1>
-    <h2>Usernames</h2>
-        <p>Hello {{ data.username }}!</p>
-    
+{% extends "base.html" %} {% block title %}AthenAI{% endblock %} {% block
+content %}
+<div class="text-white">
+  <h1>Business Feedback</h1>
+  <h2>Usernames</h2>
+  <p>Hello {{ data.username }}!</p>
 
-    <h2>General Feedback</h2>
-        <p>{{ data.feedback }}</p>
+  <h2>General Feedback</h2>
+  <p>{{ data.feedback }}</p>
 
-    <h2>Potential Risks</h2>
-        {% for risk in data.risks %}
-        <p> {{ risk }} </p> <br>
-        {% endfor %}
+  <h2>Potential Risks</h2>
+  {% for risk in data.risks %}
+  <p>{{ risk }}</p>
+  <br />
+  {% endfor %}
 
-    <h2>Competitors</h2>
-        {% for competitor in data.competitors %}
-        <p>{{ competitor }}<p>
-        {% endfor %}
+  <h2>Competitors</h2>
+  {% for competitor in data.competitors %}
+  <p>{{ competitor }}</p>
+  <p>
+    <br />
+    {% endfor %}
+  </p>
 
-    <h2>Technology to Assist Your Business</h2>
+  <h2>Technology to Assist Your Business</h2>
 
-        {% for technology in data.technologies %}
-        <p>{{ technology }}</p>
-        {% endfor %}
+  {% for technology in data.technologies %}
+  <p>{{ technology }}</p>
+  {% endfor %}
 
-    <h2>Marketing Strategies</h2>
-        {% for strategy in data.strategies %}
-        <p>{{ strategy }}</p>
-        {% endfor %}
-</body>
-</html>
+  <h2>Marketing Strategies</h2>
+  {% for strategy in data.strategies %}
+  <p>{{ strategy }}</p>
+  {% endfor %} {% endblock %}
+</div>

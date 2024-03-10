@@ -1,35 +1,131 @@
-{% extends "base.html" %}
-{% block title %}Idea Validation{% endblock %}
-{% block content %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Entrepreneur Information Form</title>
-</head>
-<body style = "color:red">
-    <h2>Entrepreneur Information Form</h2>
-    <form action="#" method="post">
-        <label for="product_description">Product Description:</label><br>
-        <textarea id="product_description" name="product_description" rows="4" cols="50"></textarea><br><br>
-        
-        <label for="target_customer_demographic">Target Customer Demographic:</label><br>
-        <textarea id="target_customer_demographic" name="target_customer_demographic" rows="4" cols="50"></textarea><br><br>
-        
-        <label for="initial_investment">Initial Investment:</label><br>
-        <input type="text" id="initial_investment" name="initial_investment"><br><br>
-        
-        <label for="goals_of_the_company">Goals of the Company:</label><br>
-        <textarea id="goals_of_the_company" name="goals_of_the_company" rows="4" cols="50"></textarea><br><br>
-        
-        <label for="likelihood_of_taking_risk">Likelihood of taking Risk:</label><br>
-        <select id="likelihood_of_taking_risk" name="likelihood_of_taking_risk">
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-        </select><br><br>
-        
-        <input type="submit" value="Submit">
-    </form>
-</body>
-</html>
+{% extends "base.html" %} {% block title %}Idea Validation{% endblock %} {%
+block content %}
+<div class="flex flex-col text-center w-full mb-10 mt-10">
+  <h1
+    class="sm:text-7xl mb-5 text-2xl bg-gradient-to-r from-orange-500 via-orange-300 to-red-600 inline-block text-transparent bg-clip-text font-medium title-font font-poppins"
+  >
+    Ask Athena
+  </h1>
+  <h1
+    class="sm:text-5xl text-2xl text-light font-medium title-font font-poppins"
+  >
+    Let's Kickstart your Career!
+  </h1>
+</div>
+<form method="post">
+  <div class="space-y-12">
+    <div class="border-b border-gray-900/10 pb-12 text-light mx-40">
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <label
+            for="username"
+            class="block text-lg font-medium leading-6 text-light"
+            >Product Description</label
+          >
+          <div class="col-span-full">
+            <div class="mt-2">
+              <textarea
+                rows="5"
+                id="product_description"
+                name="product_description"
+                class="block min-w-full ded-md border-0 py-1.5 text-light shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-transparent"
+              ></textarea>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600">
+              Describe your project. A good desciption can give better results.
+            </p>
+          </div>
+        </div>
+        <div class="sm:col-span-4">
+          <label
+            for="username"
+            class="block text-lg font-medium leading-6 text-light"
+            >Target Customer Demographic:
+          </label>
+          <div class="col-span-full">
+            <div class="mt-2">
+              <textarea
+                rows="5"
+                id="target_customer_demographic"
+                name="target_customer_demographic"
+                class="block min-w-full ded-md border-0 py-1.5 text-light shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-transparent"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="sm:col-span-4">
+          <label
+            for="username"
+            class="block text-lg font-medium leading-6 text-light"
+            >Goals of the Campaign:
+          </label>
+          <div class="col-span-full">
+            <div class="mt-2">
+              <textarea
+                rows="5"
+                id="goals_of_the_company"
+                name="goals_of_the_company"
+                class="block min-w-full ded-md border-0 py-1.5 text-light shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-transparent"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <label
+            for="username"
+            class="block text-lg font-medium leading-6 text-light"
+            >Initial Investment</label
+          >
+          <div class="mt-2">
+            <div
+              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md font-light"
+            >
+              <input
+                type="text"
+                id="initial_investment"
+                name="initial_investment"
+                autocomplete="username"
+                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-light placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                placeholder=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="sm:col-span-4">
+          <label
+            for="username"
+            class="block text-lg font-medium leading-6 text-light"
+            >Likelihood of taking risk:</label
+          >
+          <div class="mt-2">
+            <div
+              class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md font-light"
+            >
+              <input
+                type="text"
+                id="likelihood_of_taking_risk"
+                name="likelihood_of_taking_risk"
+                autocomplete="username"
+                class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-light placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                placeholder=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <div class="mx-0">
+        <button
+          type="submit"
+          value="Submit"
+          class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          Go
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
 {% endblock %}
