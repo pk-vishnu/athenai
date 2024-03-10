@@ -11,11 +11,31 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
+    <style>
+      .flash-message {
+          opacity: 0;
+          transition: opacity 2s ease-in-out;
+      }
+  </style>
   </head>
-  <body class="bg-dark m-0">
+  <body
+    class="bg-fixed bg-cover bg-center bg-no-repeat bg-dark"
+    style="background-image: url('../static/images/bg3.jpg')"
+  >
+  <div class="container mx-auto mt-8">
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          var flashMessage = document.getElementById('flash-message');
+          if (flashMessage) {
+              setTimeout(function() {
+                  flashMessage.remove(); 
+              }, 3000); 
+          }
+      });
+  </script>
     <!-- DISPLAYING FLASH MESSAGES -->
     {% with messages = get_flashed_messages(with_categories=true) %} {% if
-    messages %} {% for i in messages %} {{ i }} {% endfor %} {% endif %} {%
+    messages %}   <div id="flash-message" class="absolute top-0 right-0 m-4 p-4 bg-primary text-white shadow-lg rounded-lg ease-[cubic-bezier(0.95,0.05,0.795,0.035)]">{% for i in messages %} <div>{{ i[1] }} </div>{% endfor %}</div> {% endif %} {%
     endwith %}
 
     <!--BUILD NAVBAR HERE-->
@@ -42,7 +62,9 @@
               >My Projects</a
             >
             <a class="mr-5 hover:text-primary" href="/newfundme">New Fundme</a>
-            <a class="mr-5 hover:text-primary" href="/newcareers">New Career Post</a>
+            <a class="mr-5 hover:text-primary" href="/newcareers"
+              >New Career Post</a
+            >
             <a class="mr-5 hover:text-primary" href="/projects">Projects</a>
             <a class="mr-5 hover:text-primary" href="/careers">Careers</a>
             <a class="mr-5 hover:text-primary" href="/mycareers">My Careers</a>
@@ -116,11 +138,11 @@
           >
             © 2024 AthenAI —
             <a
-              href="https://twitter.com/knyttneve"
+              href="#"
               class="text-gray-500 ml-1"
               target="_blank"
               rel="noopener noreferrer"
-              >#TeamAthena GDSC TW 24'</a
+              >#EmpowHer GDSC TW 24'</a
             >
           </p>
           <span
