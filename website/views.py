@@ -102,15 +102,18 @@ def careers():
     cursor.execute(query)
 
     careers = cursor.fetchall()
+    return render_template("careers.html", careers=careers)
 
+@login_required
+@views.route("/mycareers")
+def mycareers():
+    connection = connect_to_database()
+    cursor = connection.cursor()
     query = "SELECT * FROM careers WHERE username = %s"
     cursor.execute(query, (current_user.id,))
     mycareers = cursor.fetchall()
-
     connection.close()
-
-    return render_template("careers.html", user=current_user, careers=careers, mycareers=mycareers)
-
+    return render_template("mycareers.html", user=current_user, mycareers=mycareers)
 
 @views.route("/newcareers", methods=["GET", "POST"])
 def newcareers():
